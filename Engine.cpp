@@ -9,7 +9,7 @@ bool Engine::Init()
 	desktopSize = Vector2f(VideoMode::getDesktopMode().width, VideoMode::getDesktopMode().height);
 	windowSize = Vector2f(WINDOWSIZEX, WINDOWSIZEY);
 
-	window = new RenderWindow(VideoMode(desktopSize.x, desktopSize.y), "Keyboard Warrior", Style::Fullscreen);
+	window = new RenderWindow(VideoMode(desktopSize.x, desktopSize.y), "Keyboard Warrior"/*, Style::Fullscreen*/);
 	window->setVerticalSyncEnabled(true);
 	window->setKeyRepeatEnabled(false);
 	window->setMouseCursorVisible(false);
@@ -26,6 +26,28 @@ bool Engine::Init()
 	world = new b2World(b2Vec2(0.0f, GRAVITY * ut::SCALE)); 
 	camera = new Camera(Vector2f(windowSize.x / 4, windowSize.y / 4));
 	camera->SetPosition(Vector2f(0, 120));
+
+	
+	bool bRet = SteamAPI_Init();
+
+	leaderboardHeading = new DrawText("Images/TestText.png", 8);
+	leaderboardHeading->SetSprites(new string("LEADERBOARD:"));
+
+	if (bRet)
+	{
+		g_SteamLeaderboards = new Leaderboard();
+		g_SteamLeaderboards->FindLeaderboard("Distance Traveled");
+
+		for (int i = 0; i < LEADERBOARDSIZE; i++)
+		{
+			leaderboardDistance[i] = new DrawText("Images/TestText.png", 8);
+
+			string s;
+			s = "NULL";
+
+			leaderboardDistance[i]->SetSprites(&s);
+		}
+	}
 	
 	debugDraw = new SFMLDebugDraw(*window);
 	//world->SetDebugDraw(debugDraw);
@@ -134,6 +156,8 @@ void Engine::Update()
 
 	worldGenerator->Generate(*window, *world, camera->GetCamera().getCenter().x + (camera->GetCamera().getSize().x / 2) + 128);
 
+	SteamAPI_RunCallbacks();
+
 	if (player->GetFullscreen() != isFullscreen)
 	{
 		if (isFullscreen)
@@ -183,6 +207,15 @@ void Engine::Update()
 				distanceTravelled->SetSprites(new string("YOU TRAVELLED: " + to_string(player->GetDistanceTravelled())));
 				distanceTravelled->SetOrigin(Vector2f((distanceTravelled->GetLength().x) / 2, distanceTravelled->GetLength().y / 2));
 				distanceTravelled->SetPosition(Vector2f(camera->GetPosition().x, camera->GetPosition().y));
+
+				//g_SteamLeaderboards->FindLeaderboard("Distance Traveled");
+				g_SteamLeaderboards->UploadScore(player->GetDistanceTravelled());
+
+				leaderboardHeading->SetOrigin(Vector2f((leaderboardHeading->GetLength().x) / 2, leaderboardHeading->GetLength().y / 2));
+				leaderboardHeading->SetPosition(Vector2f(camera->GetStartPoint().x + leaderboardHeading->GetLength().x / 2, camera->GetStartPoint().y + leaderboardHeading->GetLength().y / 2));
+				
+				g_SteamLeaderboards->DownloadScore();
+
 				shadeFader = 0;
 			}
 		}
@@ -196,6 +229,15 @@ void Engine::Update()
 			distanceTravelled->SetSprites(new string("YOU TRAVELLED: " + to_string(player->GetDistanceTravelled())));
 			distanceTravelled->SetOrigin(Vector2f((distanceTravelled->GetLength().x) / 2, distanceTravelled->GetLength().y / 2));
 			distanceTravelled->SetPosition(Vector2f(camera->GetPosition().x, camera->GetPosition().y));
+
+			//g_SteamLeaderboards->FindLeaderboard("Distance Traveled");
+			g_SteamLeaderboards->UploadScore(player->GetDistanceTravelled());
+
+			leaderboardHeading->SetOrigin(Vector2f((leaderboardHeading->GetLength().x) / 2, leaderboardHeading->GetLength().y / 2));
+			leaderboardHeading->SetPosition(Vector2f(camera->GetStartPoint().x + leaderboardHeading->GetLength().x / 2, camera->GetStartPoint().y + leaderboardHeading->GetLength().y / 2));
+
+			g_SteamLeaderboards->DownloadScore();
+
 			shadeFader = 0;
 		}
 	}
@@ -225,13 +267,28 @@ void Engine::Update()
 			shadeFader++;
 		if(volume >= 0)
 			music->setVolume(max(--volume, 0));
+
+		for (int i = 0; i < LEADERBOARDSIZE; i++)
+		{
+			leaderboardDistance[i]->SetPosition(Vector2f(leaderboardHeading->GetPosition().x, leaderboardHeading->GetPosition().y + (leaderboardDistance[i]->GetSize().y * (i + 1)) + (leaderboardDistance[i]->GetLength().y / 2)));
+			leaderboardDistance[i]->SetOrigin(Vector2f((leaderboardDistance[i]->GetLength().x) / 2, (leaderboardDistance[i]->GetLength().y / 2)));
+
+			string s;
+			s = to_string(g_SteamLeaderboards->leaderboardEntries[i].m_nGlobalRank);
+			s += " ";
+			s += to_string(g_SteamLeaderboards->leaderboardEntries[i].m_steamIDUser.GetAccountID());
+			s += " ";
+			s += to_string(g_SteamLeaderboards->leaderboardEntries[i].m_nScore);
+
+			leaderboardDistance[i]->SetSprites(&s);
+		}
 	}
 	else
 	{
 		if (shadeFader != 0)
 		{
 			shadeFader--;
-			if (volume <= 100)
+			if (volume <= MAXVOLUME)
 				music->setVolume(min(++volume, MAXVOLUME));
 		}
 	}
@@ -239,6 +296,9 @@ void Engine::Update()
 	gameShade->setPosition(camera->GetPosition());
 	gameShade->setFillColor(sf::Color(0, 0, 0, min(shadeFader, 255)));
 	distanceTravelled->SetColour(sf::Color(255, 255, 255, min(shadeFader, 255)));
+	leaderboardHeading->SetColour(sf::Color(255, 255, 255, min(shadeFader, 255)));
+	for (int i = 0; i < LEADERBOARDSIZE; i++)
+		leaderboardDistance[i]->SetColour(sf::Color(255, 255, 255, min(shadeFader, 255)));
 
 	player->Update(camera->GetPosition(), camera->GetCamera().getSize());
 
@@ -268,7 +328,10 @@ void Engine::Update()
 	}
 
 	if (player->GetQuit())
+	{
+		SteamAPI_Shutdown();
 		window->close();
+	}
 }
 
 void Engine::RenderFrame()
@@ -286,6 +349,9 @@ void Engine::RenderFrame()
 	if (!player->IsAlive())
 	{
 		distanceTravelled->Draw(*window);
+		leaderboardHeading->Draw(*window);
+		for (int i = 0; i < LEADERBOARDSIZE; i++)
+			leaderboardDistance[i]->Draw(*window);
 		player->DrawPanel(*window);
 	}
 	if (shadeFader >= 300)

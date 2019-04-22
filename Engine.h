@@ -4,6 +4,7 @@
 #include <SFML\Graphics.hpp>
 #include <SFML\Audio.hpp>
 #include <Box2D\Box2D.h>
+#include <steam\steam_api.h>
 #include "WorldGenerator.h"
 #include "ImageHandler.h"
 #include "Background.h"
@@ -16,12 +17,14 @@
 #include "Utility.h"
 #include "Player.h"
 #include "CollisionHandler.h"
+#include "Leaderboard.h"
 
 #define GRAVITY 2.5f
 #define WORLDTIME 1/60.0f
 #define WINDOWSIZEX 1600
 #define WINDOWSIZEY 900
-#define MAXVOLUME 100
+#define MAXVOLUME 15
+#define LEADERBOARDSIZE 10
 
 using namespace std;
 using namespace sf;
@@ -36,6 +39,10 @@ private:
 	WorldGenerator *worldGenerator;
 	Background *background;
 	DrawText *distanceTravelled;
+	DrawText *leaderboardHeading;
+	DrawText *leaderboardDistance[LEADERBOARDSIZE];
+
+	Leaderboard *g_SteamLeaderboards = NULL;
 
 	Camera *camera;
 	b2World *world;
@@ -48,7 +55,7 @@ private:
 	EnemyGroup *enemies;
 	DestructableGroup *destructables;
 
-	ImageHandler* logo;
+	ImageHandler *logo;
 	RectangleShape *menuShade, *gameShade;
 	int shadeFader, volume;
 	bool isFullscreen = false;

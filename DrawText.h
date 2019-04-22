@@ -32,6 +32,7 @@ public:
 
 	Vector2f GetSize() { return Vector2f(textSize, textSize); };
 	Vector2f GetLength() { return Vector2f(length * textSize, textSize); };
+	Vector2f GetPosition() { return Vector2f(position.x, position.y); };
 
 	DrawText();
 	DrawText(Texture &Texture);

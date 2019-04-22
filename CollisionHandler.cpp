@@ -13,6 +13,7 @@ void CollisionHandler::BeginContact(b2Contact * contact)
 			{
 				_fixtureA->GetBody()->SetUserData((void*)ut::KILL);
 				_fixtureB->GetBody()->SetUserData((void*)ut::DIE);
+				
 			}
 		}
 
@@ -28,8 +29,8 @@ void CollisionHandler::BeginContact(b2Contact * contact)
 		{
 			if (!_fixtureA->IsSensor())
 			{
-			_fixtureA->GetBody()->SetUserData((void*)ut::DIE);
-			_fixtureB->GetBody()->SetUserData((void*)ut::KILL);
+				_fixtureA->GetBody()->SetUserData((void*)ut::DIE);
+				_fixtureB->GetBody()->SetUserData((void*)ut::KILL);
 			}
 		}
 
