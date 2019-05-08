@@ -18,7 +18,7 @@ class TypingControls
 {
 private:
 	bool menu, options = false, go = false, drawSurrounds = true, shoot = false,  ok = false;
-	int difficulty, difficultyOffset = 0, distanceCounter = 0, initialDistance = 0;
+	int difficulty, difficultyOffset = 0, distanceCounter = 0, initialDistance = 0, wordCounter = 0;
 	string currentWord, distanceString;
 	Texture texture, currentWordTexture, textPanel;
 	Color textColour = Color::White;
@@ -48,6 +48,7 @@ public:
 	void Draw(RenderWindow &Window, bool DrawWords);
 	void DrawOK(RenderWindow &Window);
 	void DrawPanel(RenderWindow &Window);
+	void ResetWordCounter() { wordCounter = 0; };
 	bool CheckWords(string &ActionOutput);
 	bool LoadWords(string Filepath);
 	bool GetMenu() { return menu; };
@@ -55,6 +56,7 @@ public:
 	bool GetOptions() { return options; };
 	bool GetShoot() { return shoot; };
 	int GetDistance() { return distanceCounter; };
+	int GetWordCounter() { return wordCounter; };
 	void SetMenu(bool Menu) { menu = Menu; };
 	void SetOptions(bool Options) { options = Options; };
 	void SetPlayerPosition(int PositionX) { initialDistance = PositionX; };

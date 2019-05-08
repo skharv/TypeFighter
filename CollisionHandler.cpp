@@ -5,15 +5,26 @@ void CollisionHandler::BeginContact(b2Contact * contact)
 	b2Fixture* _fixtureA = contact->GetFixtureA();
 	b2Fixture* _fixtureB = contact->GetFixtureB();
 
-	if (_fixtureA->GetBody()->GetUserData() == (void*)ut::HITBOX)
+	if (_fixtureA->GetBody()->GetUserData() == (void*)ut::HITBOX || _fixtureA->GetBody()->GetUserData() == (void*)ut::BULLET)
 	{
 		if (_fixtureB->GetBody()->GetUserData() == (void*)ut::ENEMY || _fixtureB->GetBody()->GetUserData() == (void*)ut::PLAYER || _fixtureB->GetBody()->GetUserData() == (void*)ut::DESTRUCTABLE)
 		{
 			if (!_fixtureB->IsSensor())
 			{
+				if (_fixtureB->GetBody()->GetUserData() == (void*)ut::ENEMY)
+				{
+					if (_fixtureA->GetBody()->GetUserData() == (void*)ut::HITBOX)
+						lastDeathType = MELEE;
+					else if (_fixtureA->GetBody()->GetUserData() == (void*)ut::BULLET)
+						lastDeathType = BULLET;
+					else
+						lastDeathType = NONE;
+				}
+
 				_fixtureA->GetBody()->SetUserData((void*)ut::KILL);
 				_fixtureB->GetBody()->SetUserData((void*)ut::DIE);
-				
+
+				justKilled = true;
 			}
 		}
 
@@ -23,14 +34,26 @@ void CollisionHandler::BeginContact(b2Contact * contact)
 		if (_fixtureB->GetBody()->GetUserData() == (void*)ut::WORLD)
 			_fixtureA->GetBody()->SetUserData((void*)ut::KILL);
 	}
-	else if (_fixtureB->GetBody()->GetUserData() == (void*)ut::HITBOX)
+	else if (_fixtureB->GetBody()->GetUserData() == (void*)ut::HITBOX || _fixtureB->GetBody()->GetUserData() == (void*)ut::BULLET)
 	{
 		if (_fixtureA->GetBody()->GetUserData() == (void*)ut::ENEMY || _fixtureA->GetBody()->GetUserData() == (void*)ut::PLAYER || _fixtureA->GetBody()->GetUserData() == (void*)ut::DESTRUCTABLE)
 		{
 			if (!_fixtureA->IsSensor())
 			{
+				if (_fixtureA->GetBody()->GetUserData() == (void*)ut::ENEMY)
+				{
+					if (_fixtureB->GetBody()->GetUserData() == (void*)ut::HITBOX)
+						lastDeathType = MELEE;
+					else if (_fixtureB->GetBody()->GetUserData() == (void*)ut::BULLET)
+						lastDeathType = BULLET;
+					else
+						lastDeathType = NONE;
+				}
+
 				_fixtureA->GetBody()->SetUserData((void*)ut::DIE);
 				_fixtureB->GetBody()->SetUserData((void*)ut::KILL);
+
+				justKilled = true;
 			}
 		}
 

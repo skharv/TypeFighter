@@ -7,6 +7,7 @@
 namespace ut
 {
 	const char* const HITBOX = "HITBOX";
+	const char* const BULLET = "BULLET";
 	const char* const ENEMY = "ENEMY";
 	const char* const PLAYER = "PLAYER";
 	const char* const KILL = "KILL";

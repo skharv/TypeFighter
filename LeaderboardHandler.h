@@ -1,12 +1,15 @@
-#ifndef LEADERBOARD_H
-#define LEADERBOARD_H
+#ifndef LEADERBOARDHANDLER_H
+#define LEADERBOARDHANDLER_H
 
 #include <steam\steam_api.h>
 
-class Leaderboard
+
+class LeaderboardHandler
 {
 private:
 	SteamLeaderboard_t currentLeaderboard;
+
+	bool boardReady = false;
 
 	int min(int a, int b) { return (a < b ? a : b); };
 public:
@@ -17,16 +20,20 @@ public:
 	bool UploadScore( int Score);
 	bool DownloadScore();
 
+	bool DownloadTopScore();
+
+	bool IsBoardReady();
+	void DisplayTopBoard() { boardReady = true; };
 
 	void OnFindLeaderboard(LeaderboardFindResult_t *pResult, bool bIOFailure);
-	CCallResult<Leaderboard, LeaderboardFindResult_t> callResultFindLeaderboard;
+	CCallResult<LeaderboardHandler, LeaderboardFindResult_t> callResultFindLeaderboard;
 	void OnUploadScore(LeaderboardScoreUploaded_t *pResult, bool bIOFailure);
-	CCallResult<Leaderboard, LeaderboardScoreUploaded_t> callResultUploadScore;
+	CCallResult<LeaderboardHandler, LeaderboardScoreUploaded_t> callResultUploadScore;
 	void OnDownloadScore(LeaderboardScoresDownloaded_t *pResult, bool bIOFailure);
-	CCallResult<Leaderboard, LeaderboardScoresDownloaded_t> callResultDownloadScore;
+	CCallResult<LeaderboardHandler, LeaderboardScoresDownloaded_t> callResultDownloadScore;
 
-	Leaderboard();
-	~Leaderboard();
+	LeaderboardHandler();
+	~LeaderboardHandler();
 };
 
 #endif

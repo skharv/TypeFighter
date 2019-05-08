@@ -155,9 +155,6 @@ void Controllable::Update(vector<GameEntity*> &Entities)
 		}
 	}
 
-	//if (standCounter > 240)
-	//	body->SetUserData((void*)ut::KILL);
-
 	//Death stuff
 	if (animations.GetFollower(0).animHandler->GetCurrentAnimation() == "Default" && die)
 		body->SetUserData((void*)ut::KILL);

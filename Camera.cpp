@@ -4,7 +4,7 @@ void Camera::Resize(Vector2u NewSize)
 {
 	Vector2f sizePercentage;
 
-	size = Vector2f(NewSize.x * 0.25, NewSize.y * 0.25);
+	size = Vector2f(NewSize.x/* * 0.25*/, NewSize.y/* * 0.25*/);
 	view.reset(FloatRect(0, 0, size.x, size.y));
 }
 

@@ -257,10 +257,10 @@ void WorldGenerator::Generate(RenderWindow &Window, b2World &World, float SpawnP
 		}
 		else
 		{
-			int i = rand() % (/*sectionCount */ 9);
+			int i = rand() % /*sectionCount*/ 9;
 			i += 2;
 
-			SpawnSection(7, World);
+			SpawnSection(i, World);
 			SpawnSection(1, World);
 		}
 	}

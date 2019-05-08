@@ -12,16 +12,19 @@ private:
 	Texture texture;
 	Sprite sprite;
 	Vector2f origin;
+	Vector2f offset;
 	Vector2f scale;
 public:
 	void Draw(RenderWindow& Window);
 	void Update(Vector2f Position);
 
 	void SetPosition(Vector2f Position) { sprite.setPosition(Position); };
+	void SetPositionOffset(Vector2f Offset) { offset = Offset; };
 	void SetOrigin(Vector2f Origin) { origin = Origin; };
 	void SetRotation(float Degrees) { sprite.setRotation(Degrees); };
 
 	Vector2f GetPosition() { return sprite.getPosition(); };
+	Vector2f GetOffset() { return offset; };
 	Vector2u GetSize() { return sprite.getTexture()->getSize(); };
 
 	ImageHandler(string FilePath);

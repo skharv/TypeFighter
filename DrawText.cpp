@@ -125,8 +125,14 @@ int DrawText::MapLetter(char Letter)
 	case'0':
 		_return = 39;
 		break;
-	default:
+	case'-':
 		_return = 40;
+		break;
+	case'?':
+		_return = 41;
+		break;
+	default:
+		_return = 41;
 		break;
 	}
 
@@ -161,9 +167,11 @@ void DrawText::SetSprites(string * String)
 
 void DrawText::SetColour(Color Colour)
 {
+	colour = Colour;
+
 	for (int i = 0; i < sprites.size(); i++)
 	{
-		sprites[i].setColor(Colour);
+		sprites[i].setColor(colour);
 	}
 }
 
@@ -197,6 +205,7 @@ DrawText::DrawText()
 	texture.loadFromFile("Images/TestText.png");
 	textSize = DEFAULTTEXTSIZE;
 	frames = Vector2i(texture.getSize().x / textSize, texture.getSize().y / textSize);
+	colour = Color::White;
 }
 
 DrawText::DrawText(Texture &Texture)
@@ -204,6 +213,7 @@ DrawText::DrawText(Texture &Texture)
 	texture = Texture;
 	textSize = DEFAULTTEXTSIZE;
 	frames = Vector2i(texture.getSize().x / textSize, texture.getSize().y / textSize);
+	colour = Color::White;
 }
 
 DrawText::DrawText(Texture & Texture, int TextSize)
@@ -211,6 +221,7 @@ DrawText::DrawText(Texture & Texture, int TextSize)
 	texture = Texture;
 	textSize = TextSize;
 	frames = Vector2i(texture.getSize().x / textSize, texture.getSize().y / textSize);
+	colour = Color::White;
 }
 
 DrawText::DrawText(string FilePath, int TextSize)
@@ -218,6 +229,7 @@ DrawText::DrawText(string FilePath, int TextSize)
 	texture.loadFromFile(FilePath);
 	textSize = TextSize;
 	frames = Vector2i(texture.getSize().x / textSize, texture.getSize().y / textSize);
+	colour = Color::White;
 }
 
 DrawText::~DrawText()

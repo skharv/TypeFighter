@@ -31,6 +31,12 @@
     <Filter Include="Header Files\Drawable">
       <UniqueIdentifier>{dbffab01-90d7-4cf7-96f4-307a4f326e45}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Steam">
+      <UniqueIdentifier>{3410e312-3d4f-49c2-906b-be4fca76cbe7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Steam">
+      <UniqueIdentifier>{b6c1eba5-8984-4fb9-a9ea-c561168238fc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine.h">
@@ -108,8 +114,14 @@
     <ClInclude Include="CollisionHandler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Leaderboard.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="StatsAchHandler.h">
+      <Filter>Header Files\Steam</Filter>
+    </ClInclude>
+    <ClInclude Include="LeaderboardHandler.h">
+      <Filter>Header Files\Steam</Filter>
+    </ClInclude>
+    <ClInclude Include="DistanceBoard.h">
+      <Filter>Header Files\Steam</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -188,8 +200,14 @@
     <ClCompile Include="CollisionHandler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Leaderboard.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="StatsAchHandler.cpp">
+      <Filter>Source Files\Steam</Filter>
+    </ClCompile>
+    <ClCompile Include="LeaderboardHandler.cpp">
+      <Filter>Source Files\Steam</Filter>
+    </ClCompile>
+    <ClCompile Include="DistanceBoard.cpp">
+      <Filter>Source Files\Steam</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

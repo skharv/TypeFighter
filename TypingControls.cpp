@@ -63,6 +63,9 @@ bool TypingControls::CheckWords(string &ActionOutput)
 	if((!_complete && go) && currentWord.size() > 0)
 		currentWord.clear();
 
+	if (_complete)
+		wordCounter++;
+
 	return _complete;
 }
 
@@ -177,8 +180,8 @@ void TypingControls::Update(Vector2f ScreenPosition, Vector2f ScreenSize)
 
 		if (actions[i].name == "OK")
 		{
-			Vector2f _position = Vector2f(ScreenPosition.x - actions[i].Drawable->GetLength().x / 2, ScreenPosition.y + 50);
-			actions[i].Drawable->SetOrigin(Vector2f(actions[i].Drawable->GetLength().x / 2, actions[i].Drawable->GetSize().y / 2));
+			Vector2f _position = Vector2f(ScreenPosition.x, ScreenPosition.y + 50);
+			actions[i].Drawable->SetOrigin(Vector2f(actions[i].Drawable->GetLength().x / 2, actions[i].Drawable->GetLength().y / 2));
 			actions[i].Drawable->SetPosition(_position);
 		}
 

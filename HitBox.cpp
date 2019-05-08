@@ -59,7 +59,10 @@ HitBox::HitBox(b2Body* Owner, float Radius, Vector2f Position, Vector2f Velocity
 	body->ApplyLinearImpulseToCenter(Utility::SFVECtoB2VEC(Velocity, true), true);
 
 	body->SetBullet(true);
-	body->SetUserData((void*)ut::HITBOX);
+	if (Velocity == Vector2f(0, 0))
+		body->SetUserData((void*)ut::HITBOX);
+	else
+		body->SetUserData((void*)ut::BULLET);
 
 	if(Gravity)
 		body->SetGravityScale(1.0f);

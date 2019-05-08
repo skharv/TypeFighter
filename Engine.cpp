@@ -27,27 +27,8 @@ bool Engine::Init()
 	camera = new Camera(Vector2f(windowSize.x / 4, windowSize.y / 4));
 	camera->SetPosition(Vector2f(0, 120));
 
-	
-	bool bRet = SteamAPI_Init();
-
-	leaderboardHeading = new DrawText("Images/TestText.png", 8);
-	leaderboardHeading->SetSprites(new string("LEADERBOARD:"));
-
-	if (bRet)
-	{
-		g_SteamLeaderboards = new Leaderboard();
-		g_SteamLeaderboards->FindLeaderboard("Distance Traveled");
-
-		for (int i = 0; i < LEADERBOARDSIZE; i++)
-		{
-			leaderboardDistance[i] = new DrawText("Images/TestText.png", 8);
-
-			string s;
-			s = "NULL";
-
-			leaderboardDistance[i]->SetSprites(&s);
-		}
-	}
+	SteamLeaderboards = new DistanceBoard("Distance Traveled", Vector2f(1, 1), Right, 1);
+	SteamStatAchHandler = new StatsAchHandler();
 	
 	debugDraw = new SFMLDebugDraw(*window);
 	//world->SetDebugDraw(debugDraw);
@@ -156,8 +137,6 @@ void Engine::Update()
 
 	worldGenerator->Generate(*window, *world, camera->GetCamera().getCenter().x + (camera->GetCamera().getSize().x / 2) + 128);
 
-	SteamAPI_RunCallbacks();
-
 	if (player->GetFullscreen() != isFullscreen)
 	{
 		if (isFullscreen)
@@ -203,18 +182,26 @@ void Engine::Update()
 			if (player->IsAlive())
 			{
 				player->Kill();
+				if(player->GetStandCounter() >= 180)
+					SteamStatAchHandler->CompleteAchievement(ACH_STAND_STILL);
+				else
+					SteamStatAchHandler->CompleteAchievement(ACH_DIE);
 
 				distanceTravelled->SetSprites(new string("YOU TRAVELLED: " + to_string(player->GetDistanceTravelled())));
-				distanceTravelled->SetOrigin(Vector2f((distanceTravelled->GetLength().x) / 2, distanceTravelled->GetLength().y / 2));
-				distanceTravelled->SetPosition(Vector2f(camera->GetPosition().x, camera->GetPosition().y));
+				distanceTravelled->SetOrigin(Vector2f(distanceTravelled->GetSize().x / 2, distanceTravelled->GetSize().y / 2));
+				distanceTravelled->SetPosition(Vector2f(camera->GetPosition().x - (camera->GetSize().x / 2) + (camera->GetSize().x / 20), camera->GetPosition().y - (camera->GetSize().y / 2.25)));
 
-				//g_SteamLeaderboards->FindLeaderboard("Distance Traveled");
-				g_SteamLeaderboards->UploadScore(player->GetDistanceTravelled());
+				SteamLeaderboards->UploadDistance(player->GetDistanceTravelled());
+				SteamStatAchHandler->SetBestDistance(player->GetDistanceTravelled());
 
-				leaderboardHeading->SetOrigin(Vector2f((leaderboardHeading->GetLength().x) / 2, leaderboardHeading->GetLength().y / 2));
-				leaderboardHeading->SetPosition(Vector2f(camera->GetStartPoint().x + leaderboardHeading->GetLength().x / 2, camera->GetStartPoint().y + leaderboardHeading->GetLength().y / 2));
-				
-				g_SteamLeaderboards->DownloadScore();
+				if(player->GetDistanceTravelled() > 250)
+					SteamStatAchHandler->CompleteAchievement(ACH_RUN_250);
+				if (player->GetDistanceTravelled() > 500)
+					SteamStatAchHandler->CompleteAchievement(ACH_RUN_500);
+				if (player->GetDistanceTravelled() > 1000)
+					SteamStatAchHandler->CompleteAchievement(ACH_RUN_1000);
+				if (player->GetDistanceTravelled() > 10000)
+					SteamStatAchHandler->CompleteAchievement(ACH_RUN_10000);
 
 				shadeFader = 0;
 			}
@@ -225,18 +212,26 @@ void Engine::Update()
 		if (player->IsAlive())
 		{
 			player->Kill();
+			if (player->GetStandCounter() >= 180)
+				SteamStatAchHandler->CompleteAchievement(ACH_STAND_STILL);
+			else
+				SteamStatAchHandler->CompleteAchievement(ACH_DIE);
 
 			distanceTravelled->SetSprites(new string("YOU TRAVELLED: " + to_string(player->GetDistanceTravelled())));
-			distanceTravelled->SetOrigin(Vector2f((distanceTravelled->GetLength().x) / 2, distanceTravelled->GetLength().y / 2));
-			distanceTravelled->SetPosition(Vector2f(camera->GetPosition().x, camera->GetPosition().y));
+			distanceTravelled->SetOrigin(Vector2f(distanceTravelled->GetSize().x / 2, distanceTravelled->GetSize().y / 2));
+			distanceTravelled->SetPosition(Vector2f(camera->GetPosition().x - (camera->GetSize().x / 2) + (camera->GetSize().x / 20), camera->GetPosition().y - (camera->GetSize().y / 2.25)));
 
-			//g_SteamLeaderboards->FindLeaderboard("Distance Traveled");
-			g_SteamLeaderboards->UploadScore(player->GetDistanceTravelled());
+			SteamLeaderboards->UploadDistance(player->GetDistanceTravelled());
+			SteamStatAchHandler->SetBestDistance(player->GetDistanceTravelled());
 
-			leaderboardHeading->SetOrigin(Vector2f((leaderboardHeading->GetLength().x) / 2, leaderboardHeading->GetLength().y / 2));
-			leaderboardHeading->SetPosition(Vector2f(camera->GetStartPoint().x + leaderboardHeading->GetLength().x / 2, camera->GetStartPoint().y + leaderboardHeading->GetLength().y / 2));
-
-			g_SteamLeaderboards->DownloadScore();
+			if (player->GetDistanceTravelled() > 250)
+				SteamStatAchHandler->CompleteAchievement(ACH_RUN_250);
+			if (player->GetDistanceTravelled() > 500)
+				SteamStatAchHandler->CompleteAchievement(ACH_RUN_500);
+			if (player->GetDistanceTravelled() > 1000)
+				SteamStatAchHandler->CompleteAchievement(ACH_RUN_1000);
+			if (player->GetDistanceTravelled() > 10000)
+				SteamStatAchHandler->CompleteAchievement(ACH_RUN_10000);
 
 			shadeFader = 0;
 		}
@@ -248,6 +243,7 @@ void Engine::Update()
 	{
 		menuShade->setPosition(camera->GetPosition());
 		logo->SetPosition(Vector2f(camera->GetPosition().x + (camera->GetSize().x / 2) - (logo->GetSize().x / 1.5), (camera->GetPosition().y - (camera->GetSize().y / 2)) + (camera->GetPosition().y / 20) + logo->GetSize().y/1.5));
+		SteamLeaderboards->UpdateBoard(Vector2f(camera->GetPosition().x + (camera->GetSize().x / 2) - (camera->GetSize().x / 20), camera->GetPosition().y - (camera->GetSize().y / 4)));
 	}
 	else
 	{
@@ -256,6 +252,7 @@ void Engine::Update()
 			music->openFromFile("Music/Game.ogg");
 			music->play();
 			gameOn = true;
+			SteamStatAchHandler->CompleteAchievement(ACH_NAVIGATE_MENU);
 		}
 		worldGenerator->SetMenuGeneration(false);
 		menuShade->setFillColor(sf::Color::Transparent);
@@ -267,21 +264,8 @@ void Engine::Update()
 			shadeFader++;
 		if(volume >= 0)
 			music->setVolume(max(--volume, 0));
-
-		for (int i = 0; i < LEADERBOARDSIZE; i++)
-		{
-			leaderboardDistance[i]->SetPosition(Vector2f(leaderboardHeading->GetPosition().x, leaderboardHeading->GetPosition().y + (leaderboardDistance[i]->GetSize().y * (i + 1)) + (leaderboardDistance[i]->GetLength().y / 2)));
-			leaderboardDistance[i]->SetOrigin(Vector2f((leaderboardDistance[i]->GetLength().x) / 2, (leaderboardDistance[i]->GetLength().y / 2)));
-
-			string s;
-			s = to_string(g_SteamLeaderboards->leaderboardEntries[i].m_nGlobalRank);
-			s += " ";
-			s += to_string(g_SteamLeaderboards->leaderboardEntries[i].m_steamIDUser.GetAccountID());
-			s += " ";
-			s += to_string(g_SteamLeaderboards->leaderboardEntries[i].m_nScore);
-
-			leaderboardDistance[i]->SetSprites(&s);
-		}
+		
+		SteamLeaderboards->UpdateBoard(Vector2f(camera->GetPosition().x + (camera->GetSize().x / 2) - (camera->GetSize().x / 20), camera->GetPosition().y - (camera->GetSize().y / 2.25)));
 	}
 	else
 	{
@@ -296,11 +280,28 @@ void Engine::Update()
 	gameShade->setPosition(camera->GetPosition());
 	gameShade->setFillColor(sf::Color(0, 0, 0, min(shadeFader, 255)));
 	distanceTravelled->SetColour(sf::Color(255, 255, 255, min(shadeFader, 255)));
-	leaderboardHeading->SetColour(sf::Color(255, 255, 255, min(shadeFader, 255)));
-	for (int i = 0; i < LEADERBOARDSIZE; i++)
-		leaderboardDistance[i]->SetColour(sf::Color(255, 255, 255, min(shadeFader, 255)));
 
+	if (!player->GetPlay() && player->IsAlive())
+		SteamLeaderboards->SetColourAlpha(255);
+	else
+		SteamLeaderboards->SetColourAlpha(min(shadeFader, 255));
+	
 	player->Update(camera->GetPosition(), camera->GetCamera().getSize());
+
+	if (collisionHandler->GetJustKilled())
+	{
+		if (collisionHandler->GetLastDeathType() == BULLET)
+			SteamStatAchHandler->CompleteAchievement(ACH_SHOOT_SOMETHING);
+		if (collisionHandler->GetLastDeathType() == MELEE)
+			SteamStatAchHandler->CompleteAchievement(ACH_SLASH_SOMETHING);
+		collisionHandler->ResetJustKilled();
+	}
+
+	if (player->GetWordCounter() > 0)
+	{
+		SteamStatAchHandler->IncrementWordStat();
+		player->ResetWordCounter();
+	}
 
 	if (shadeFader >= 300)
 	{
@@ -327,9 +328,11 @@ void Engine::Update()
 		}
 	}
 
+	SteamLeaderboards->Update();
+
 	if (player->GetQuit())
 	{
-		SteamAPI_Shutdown();
+		SteamLeaderboards->ShutdownLeaderboard();
 		window->close();
 	}
 }
@@ -342,16 +345,17 @@ void Engine::RenderFrame()
 	entityManager->Draw(*window);
 	window->draw(*menuShade);
 	if (!player->GetPlay() && player->IsAlive())
+	{
+		SteamLeaderboards->Draw(*window);
 		logo->Draw(*window);
+	}
 	player->Draw(*window);
 	window->draw(*gameShade);
 
 	if (!player->IsAlive())
 	{
 		distanceTravelled->Draw(*window);
-		leaderboardHeading->Draw(*window);
-		for (int i = 0; i < LEADERBOARDSIZE; i++)
-			leaderboardDistance[i]->Draw(*window);
+		SteamLeaderboards->Draw(*window);
 		player->DrawPanel(*window);
 	}
 	if (shadeFader >= 300)
@@ -380,29 +384,29 @@ void Engine::Restart()
 	music->openFromFile("Music/Menu.ogg");
 	music->play();
 
+	int i = rand() % 3;
+
+	switch (i)
+	{
+	case 0:
+		background = new Background("Images/Skyline1.png", camera->GetPosition(), 1);
+		break;
+	case 1:
+		background = new Background("Images/Skyline2.png", camera->GetPosition(), 2);
+		break;
+	case 2:
+		background = new Background("Images/Skyline3.png", camera->GetPosition(), 3);
+		break;
+	default:
+		break;
+	}
+
 	camera->SetPosition(Vector2f(0, camera->GetPosition().y));
 
 	menuShade->setFillColor(sf::Color(0, 0, 0, 128));
 	menuShade->setPosition(camera->GetPosition());
 
 	worldGenerator->GenerateStart(*world);
-
-	int i = rand() % 3;
-
-	switch (i)
-	{
-	case 0:
-		background = new Background("Images/Skyline1.png", 1);
-		break;
-	case 1:
-		background = new Background("Images/Skyline2.png", 2);
-		break;
-	case 2:
-		background = new Background("Images/Skyline3.png", 3);
-		break;
-	default:
-		break;
-	}
 
 	player = new Player(*world, isFullscreen);
 	player->GetEntity()->SetPosition(worldGenerator->GetPlayerSpawn());
@@ -413,12 +417,24 @@ void Engine::Restart()
 
 void Engine::Resize()
 {
-	if (window->getSize().x < 640)
-		window->setSize(Vector2u(640, window->getSize().y));
-	if (window->getSize().y < 640)
-		window->setSize(Vector2u(window->getSize().x, 640));
+	int minX = 480;
+	int minY = 270;
+
+	if (window->getSize().x < minX)
+		window->setSize(Vector2u(minX, window->getSize().y));
+	if (window->getSize().y < minY)
+		window->setSize(Vector2u(window->getSize().x, minY));
+
+	int zoomX = (float)window->getSize().x / minX;
+	float zoomXPercent = 1 / (float)zoomX;
+
+	int zoomY = (float)window->getSize().y / minY;
+	float zoomYPercent = 1 / (float)zoomY;
 
 	camera->Resize(window->getSize());
+
+	zoomXPercent < zoomYPercent ? camera->SetZoom(zoomYPercent) : camera->SetZoom(zoomXPercent);
+
 	menuShade->setSize(Vector2f(window->getSize()));
 	menuShade->setOrigin(Vector2f(menuShade->getSize().x / 2, menuShade->getSize().y / 2));
 	gameShade->setSize(Vector2f(window->getSize()));

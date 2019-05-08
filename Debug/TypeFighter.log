@@ -1,2 +1,97 @@
-﻿  Leaderboard.cpp
+﻿  Engine.cpp
+d:\simon\documents\github\typefighter\typefighter\animationhandler.h(56): warning C4240: nonstandard extension used: access to 'AnimationHandler::frameIndex' now defined to be 'public', previously it was defined to be 'private'
+  d:\simon\documents\github\typefighter\typefighter\animationhandler.h(29): note: see declaration of 'AnimationHandler::frameIndex'
+d:\simon\documents\github\typefighter\typefighter\worldgenerator.h(108): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+d:\simon\documents\github\typefighter\typefighter\enemygroup.h(5): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+d:\simon\documents\github\typefighter\typefighter\destructablegroup.h(5): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+d:\simon\documents\github\typefighter\typefighter\drawtext.h(35): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+d:\simon\documents\github\typefighter\typefighter\drawtext.h(36): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+d:\simon\documents\github\typefighter\typefighter\engine.cpp(7): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+d:\simon\documents\github\typefighter\typefighter\engine.cpp(9): warning C4244: 'argument': conversion from 'unsigned int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+d:\simon\documents\github\typefighter\typefighter\engine.cpp(12): warning C4244: 'argument': conversion from 'T' to 'unsigned int', possible loss of data
+          with
+          [
+              T=float
+          ]
+d:\simon\documents\github\typefighter\typefighter\engine.cpp(23): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\simon\documents\github\typefighter\typefighter\engine.cpp(85): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+d:\simon\documents\github\typefighter\typefighter\engine.cpp(86): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+d:\simon\documents\github\typefighter\typefighter\engine.cpp(86): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+d:\simon\documents\github\typefighter\typefighter\engine.cpp(145): warning C4244: 'argument': conversion from 'T' to 'unsigned int', possible loss of data
+          with
+          [
+              T=float
+          ]
+d:\simon\documents\github\typefighter\typefighter\engine.cpp(156): warning C4018: '<': signed/unsigned mismatch
+d:\simon\documents\github\typefighter\typefighter\engine.cpp(165): warning C4018: '<': signed/unsigned mismatch
+d:\simon\documents\github\typefighter\typefighter\engine.cpp(192): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+d:\simon\documents\github\typefighter\typefighter\engine.cpp(222): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+d:\simon\documents\github\typefighter\typefighter\engine.cpp(245): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+d:\simon\documents\github\typefighter\typefighter\engine.cpp(266): warning C4244: 'argument': conversion from 'const _Ty' to 'float', possible loss of data
+          with
+          [
+              _Ty=int
+          ]
+d:\simon\documents\github\typefighter\typefighter\engine.cpp(268): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+d:\simon\documents\github\typefighter\typefighter\engine.cpp(276): warning C4244: 'argument': conversion from 'const _Ty' to 'float', possible loss of data
+          with
+          [
+              _Ty=int
+          ]
+d:\simon\documents\github\typefighter\typefighter\engine.cpp(325): warning C4018: '<': signed/unsigned mismatch
+d:\simon\documents\github\typefighter\typefighter\engine.cpp(375): warning C4018: '<': signed/unsigned mismatch
+d:\simon\documents\github\typefighter\typefighter\engine.cpp(423): warning C4018: '<': signed/unsigned mismatch
+d:\simon\documents\github\typefighter\typefighter\engine.cpp(425): warning C4018: '<': signed/unsigned mismatch
+d:\simon\documents\github\typefighter\typefighter\engine.cpp(428): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+d:\simon\documents\github\typefighter\typefighter\engine.cpp(431): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  StatsAchHandler.cpp
+  Generating Code...
   TypeFighter.vcxproj -> D:\Simon\Documents\GitHub\TypeFighter\Debug\TypeFighter.exe

@@ -17,14 +17,15 @@
 #include "Utility.h"
 #include "Player.h"
 #include "CollisionHandler.h"
-#include "Leaderboard.h"
+#include "DistanceBoard.h"
+#include "StatsAchHandler.h"
 
 #define GRAVITY 2.5f
 #define WORLDTIME 1/60.0f
 #define WINDOWSIZEX 1600
 #define WINDOWSIZEY 900
-#define MAXVOLUME 15
-#define LEADERBOARDSIZE 10
+#define MAXVOLUME 100
+#define VERSION 2.0f
 
 using namespace std;
 using namespace sf;
@@ -42,7 +43,8 @@ private:
 	DrawText *leaderboardHeading;
 	DrawText *leaderboardDistance[LEADERBOARDSIZE];
 
-	Leaderboard *g_SteamLeaderboards = NULL;
+	DistanceBoard *SteamLeaderboards = NULL;
+	StatsAchHandler *SteamStatAchHandler = NULL;
 
 	Camera *camera;
 	b2World *world;

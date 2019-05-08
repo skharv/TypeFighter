@@ -14,7 +14,7 @@
 #define JUMPHEIGHT 500.0f
 #define JUMPDISTANCE 250.0f
 #define JUMPDURATION 10
-#define RUNSPEED 50.0f
+#define RUNSPEED 60.0f
 
 class Controllable : public Character
 {

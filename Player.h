@@ -26,6 +26,7 @@ public:
 	void ProcessInput(Event Event);
 	void Update(Vector2f CameraPosition, Vector2f CameraSize);
 	void StartGame() { play = true; controls->SetMenu(false); };
+	void ResetWordCounter() { controls->ResetWordCounter(); };
 	bool IsAlive() { return isAlive; };
 	bool GetPlay() { return play; };
 	bool GetOK() { return ok; };
@@ -34,6 +35,7 @@ public:
 	void ToggleFullscreen() { fullscreen = !fullscreen; };
 	int GetDistanceTravelled() { return controls->GetDistance(); };
 	int GetStandCounter() { return entity->GetStandCounter(); };
+	int GetWordCounter() { return controls->GetWordCounter(); };
 
 	void Kill() { isAlive = false; play = false;};
 	Controllable *GetEntity() { return entity; };
