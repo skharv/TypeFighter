@@ -40,8 +40,7 @@ private:
 	WorldGenerator *worldGenerator;
 	Background *background;
 	DrawText *distanceTravelled;
-	DrawText *leaderboardHeading;
-	DrawText *leaderboardDistance[LEADERBOARDSIZE];
+	DrawText *credit;
 
 	DistanceBoard *SteamLeaderboards = NULL;
 	StatsAchHandler *SteamStatAchHandler = NULL;

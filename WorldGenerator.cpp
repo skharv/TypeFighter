@@ -81,7 +81,7 @@ void WorldGenerator::SpawnSection(int Index, b2World &World)
 	_newSection.backgroundSprite->setPosition(_position);
 	_newSection.backgroundSprite->setOrigin(_halfSize);
 	_newSection.backgroundSprite->setTexture(backSectionTexture);
-	if(Index == 5)
+	if(Index == 5 || Index == 9)
 		_backSectionRect = IntRect(backSectionTexture.getSize().x / 2, 0, backSectionTexture.getSize().x / 2, backSectionTexture.getSize().y);
 	else
 		_backSectionRect = IntRect(0, 0, backSectionTexture.getSize().x / 2, backSectionTexture.getSize().y);

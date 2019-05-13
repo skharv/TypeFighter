@@ -1,86 +1,16 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(391,5): warning MSB8028: The intermediate directory (Release\) contains files shared from another project (KeyboardWarrior.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-  AnimationHandler.cpp
-d:\simon\documents\github\typefighter\typefighter\animationhandler.h(56): warning C4240: nonstandard extension used: access to 'AnimationHandler::frameIndex' now defined to be 'public', previously it was defined to be 'private'
-  d:\simon\documents\github\typefighter\typefighter\animationhandler.h(29): note: see declaration of 'AnimationHandler::frameIndex'
-d:\simon\documents\github\typefighter\typefighter\animationhandler.cpp(15): warning C4018: '<': signed/unsigned mismatch
-d:\simon\documents\github\typefighter\typefighter\animationhandler.cpp(19): warning C4018: '>=': signed/unsigned mismatch
-d:\simon\documents\github\typefighter\typefighter\animationhandler.cpp(21): warning C4018: '>=': signed/unsigned mismatch
-d:\simon\documents\github\typefighter\typefighter\animationhandler.cpp(25): warning C4018: '>=': signed/unsigned mismatch
-d:\simon\documents\github\typefighter\typefighter\animationhandler.cpp(36): warning C4018: '<': signed/unsigned mismatch
-d:\simon\documents\github\typefighter\typefighter\animationhandler.cpp(54): warning C4018: '<': signed/unsigned mismatch
-d:\simon\documents\github\typefighter\typefighter\animationhandler.cpp(69): warning C4018: '<': signed/unsigned mismatch
-d:\simon\documents\github\typefighter\typefighter\animationhandler.cpp(84): warning C4018: '<': signed/unsigned mismatch
-d:\simon\documents\github\typefighter\typefighter\animationhandler.cpp(101): warning C4018: '<': signed/unsigned mismatch
-d:\simon\documents\github\typefighter\typefighter\animationhandler.cpp(123): warning C4018: '<': signed/unsigned mismatch
-d:\simon\documents\github\typefighter\typefighter\animationhandler.cpp(142): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-  Attack.cpp
-d:\simon\documents\github\typefighter\typefighter\animationhandler.h(56): warning C4240: nonstandard extension used: access to 'AnimationHandler::frameIndex' now defined to be 'public', previously it was defined to be 'private'
-  d:\simon\documents\github\typefighter\typefighter\animationhandler.h(29): note: see declaration of 'AnimationHandler::frameIndex'
-  Background.cpp
-d:\simon\documents\github\typefighter\typefighter\background.cpp(19): warning C4018: '<': signed/unsigned mismatch
-d:\simon\documents\github\typefighter\typefighter\background.cpp(38): warning C4018: '<': signed/unsigned mismatch
-d:\simon\documents\github\typefighter\typefighter\background.cpp(49): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-d:\simon\documents\github\typefighter\typefighter\background.cpp(59): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-  Brain.cpp
-d:\simon\documents\github\typefighter\typefighter\brain.cpp(45): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-  Camera.cpp
-d:\simon\documents\github\typefighter\typefighter\camera.cpp(7): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-  Character.cpp
-d:\simon\documents\github\typefighter\typefighter\animationhandler.h(56): warning C4240: nonstandard extension used: access to 'AnimationHandler::frameIndex' now defined to be 'public', previously it was defined to be 'private'
-  d:\simon\documents\github\typefighter\typefighter\animationhandler.h(29): note: see declaration of 'AnimationHandler::frameIndex'
-  CollisionHandler.cpp
-  Controllable.cpp
-d:\simon\documents\github\typefighter\typefighter\animationhandler.h(56): warning C4240: nonstandard extension used: access to 'AnimationHandler::frameIndex' now defined to be 'public', previously it was defined to be 'private'
-  d:\simon\documents\github\typefighter\typefighter\animationhandler.h(29): note: see declaration of 'AnimationHandler::frameIndex'
-d:\simon\documents\github\typefighter\typefighter\drawtext.h(33): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-d:\simon\documents\github\typefighter\typefighter\drawtext.h(34): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-  Destructable.cpp
-d:\simon\documents\github\typefighter\typefighter\animationhandler.h(56): warning C4240: nonstandard extension used: access to 'AnimationHandler::frameIndex' now defined to be 'public', previously it was defined to be 'private'
-  d:\simon\documents\github\typefighter\typefighter\animationhandler.h(29): note: see declaration of 'AnimationHandler::frameIndex'
-  DestructableGroup.cpp
-d:\simon\documents\github\typefighter\typefighter\destructablegroup.h(5): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-d:\simon\documents\github\typefighter\typefighter\animationhandler.h(56): warning C4240: nonstandard extension used: access to 'AnimationHandler::frameIndex' now defined to be 'public', previously it was defined to be 'private'
-  d:\simon\documents\github\typefighter\typefighter\animationhandler.h(29): note: see declaration of 'AnimationHandler::frameIndex'
-  EnemyGroup.cpp
-d:\simon\documents\github\typefighter\typefighter\enemygroup.h(5): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-d:\simon\documents\github\typefighter\typefighter\animationhandler.h(56): warning C4240: nonstandard extension used: access to 'AnimationHandler::frameIndex' now defined to be 'public', previously it was defined to be 'private'
-  d:\simon\documents\github\typefighter\typefighter\animationhandler.h(29): note: see declaration of 'AnimationHandler::frameIndex'
   Engine.cpp
 d:\simon\documents\github\typefighter\typefighter\animationhandler.h(56): warning C4240: nonstandard extension used: access to 'AnimationHandler::frameIndex' now defined to be 'public', previously it was defined to be 'private'
   d:\simon\documents\github\typefighter\typefighter\animationhandler.h(29): note: see declaration of 'AnimationHandler::frameIndex'
 d:\simon\documents\github\typefighter\typefighter\worldgenerator.h(108): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
 d:\simon\documents\github\typefighter\typefighter\enemygroup.h(5): warning C4067: unexpected tokens following preprocessor directive - expected a newline
 d:\simon\documents\github\typefighter\typefighter\destructablegroup.h(5): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-d:\simon\documents\github\typefighter\typefighter\drawtext.h(33): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+d:\simon\documents\github\typefighter\typefighter\drawtext.h(35): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-d:\simon\documents\github\typefighter\typefighter\drawtext.h(34): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+d:\simon\documents\github\typefighter\typefighter\drawtext.h(36): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
@@ -97,7 +27,7 @@ d:\simon\documents\github\typefighter\typefighter\engine.cpp(12): warning C4244:
               T=float
           ]
 d:\simon\documents\github\typefighter\typefighter\engine.cpp(23): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-d:\simon\documents\github\typefighter\typefighter\engine.cpp(109): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+d:\simon\documents\github\typefighter\typefighter\engine.cpp(90): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
           with
           [
               T=unsigned int
@@ -106,7 +36,7 @@ d:\simon\documents\github\typefighter\typefighter\engine.cpp(109): warning C4244
           [
               T=float
           ]
-d:\simon\documents\github\typefighter\typefighter\engine.cpp(110): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+d:\simon\documents\github\typefighter\typefighter\engine.cpp(91): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
           with
           [
               T=unsigned int
@@ -115,241 +45,58 @@ d:\simon\documents\github\typefighter\typefighter\engine.cpp(110): warning C4244
           [
               T=float
           ]
-d:\simon\documents\github\typefighter\typefighter\engine.cpp(110): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+d:\simon\documents\github\typefighter\typefighter\engine.cpp(91): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
           with
           [
               T=float
           ]
-d:\simon\documents\github\typefighter\typefighter\engine.cpp(171): warning C4244: 'argument': conversion from 'T' to 'unsigned int', possible loss of data
+d:\simon\documents\github\typefighter\typefighter\engine.cpp(150): warning C4244: 'argument': conversion from 'T' to 'unsigned int', possible loss of data
           with
           [
               T=float
           ]
-d:\simon\documents\github\typefighter\typefighter\engine.cpp(182): warning C4018: '<': signed/unsigned mismatch
-d:\simon\documents\github\typefighter\typefighter\engine.cpp(191): warning C4018: '<': signed/unsigned mismatch
-d:\simon\documents\github\typefighter\typefighter\engine.cpp(281): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+d:\simon\documents\github\typefighter\typefighter\engine.cpp(161): warning C4018: '<': signed/unsigned mismatch
+d:\simon\documents\github\typefighter\typefighter\engine.cpp(170): warning C4018: '<': signed/unsigned mismatch
+d:\simon\documents\github\typefighter\typefighter\engine.cpp(197): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
           with
           [
               T=float
           ]
-d:\simon\documents\github\typefighter\typefighter\engine.cpp(300): warning C4244: 'argument': conversion from 'const _Ty' to 'float', possible loss of data
+d:\simon\documents\github\typefighter\typefighter\engine.cpp(227): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+d:\simon\documents\github\typefighter\typefighter\engine.cpp(250): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+d:\simon\documents\github\typefighter\typefighter\engine.cpp(271): warning C4244: 'argument': conversion from 'const _Ty' to 'float', possible loss of data
           with
           [
               _Ty=int
           ]
-d:\simon\documents\github\typefighter\typefighter\engine.cpp(308): warning C4244: 'argument': conversion from 'const _Ty' to 'float', possible loss of data
+d:\simon\documents\github\typefighter\typefighter\engine.cpp(273): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+d:\simon\documents\github\typefighter\typefighter\engine.cpp(281): warning C4244: 'argument': conversion from 'const _Ty' to 'float', possible loss of data
           with
           [
               _Ty=int
           ]
-d:\simon\documents\github\typefighter\typefighter\engine.cpp(340): warning C4018: '<': signed/unsigned mismatch
-d:\simon\documents\github\typefighter\typefighter\engine.cpp(387): warning C4018: '<': signed/unsigned mismatch
-  EntityManager.cpp
-d:\simon\documents\github\typefighter\typefighter\entitymanager.cpp(5): warning C4018: '<': signed/unsigned mismatch
-d:\simon\documents\github\typefighter\typefighter\entitymanager.cpp(17): warning C4018: '<': signed/unsigned mismatch
-d:\simon\documents\github\typefighter\typefighter\entitymanager.cpp(25): warning C4018: '<': signed/unsigned mismatch
-d:\simon\documents\github\typefighter\typefighter\entitymanager.cpp(41): warning C4018: '<': signed/unsigned mismatch
-  GameEntity.cpp
-  HitBox.cpp
-d:\simon\documents\github\typefighter\typefighter\animationhandler.h(56): warning C4240: nonstandard extension used: access to 'AnimationHandler::frameIndex' now defined to be 'public', previously it was defined to be 'private'
-  d:\simon\documents\github\typefighter\typefighter\animationhandler.h(29): note: see declaration of 'AnimationHandler::frameIndex'
-  ImageHandler.cpp
-d:\simon\documents\github\typefighter\typefighter\imagehandler.cpp(21): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
-          with
-          [
-              T=unsigned int
-          ]
-          and
-          [
-              T=float
-          ]
-d:\simon\documents\github\typefighter\typefighter\imagehandler.cpp(30): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
-          with
-          [
-              T=unsigned int
-          ]
-          and
-          [
-              T=float
-          ]
-  Leaderboard.cpp
-  Main.cpp
-d:\simon\documents\github\typefighter\typefighter\animationhandler.h(56): warning C4240: nonstandard extension used: access to 'AnimationHandler::frameIndex' now defined to be 'public', previously it was defined to be 'private'
-  d:\simon\documents\github\typefighter\typefighter\animationhandler.h(29): note: see declaration of 'AnimationHandler::frameIndex'
-d:\simon\documents\github\typefighter\typefighter\worldgenerator.h(108): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
-d:\simon\documents\github\typefighter\typefighter\enemygroup.h(5): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-d:\simon\documents\github\typefighter\typefighter\destructablegroup.h(5): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-d:\simon\documents\github\typefighter\typefighter\drawtext.h(33): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-d:\simon\documents\github\typefighter\typefighter\drawtext.h(34): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-  NPC.cpp
-d:\simon\documents\github\typefighter\typefighter\animationhandler.h(56): warning C4240: nonstandard extension used: access to 'AnimationHandler::frameIndex' now defined to be 'public', previously it was defined to be 'private'
-  d:\simon\documents\github\typefighter\typefighter\animationhandler.h(29): note: see declaration of 'AnimationHandler::frameIndex'
-d:\simon\documents\github\typefighter\typefighter\npc.cpp(206): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-d:\simon\documents\github\typefighter\typefighter\npc.cpp(208): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-d:\simon\documents\github\typefighter\typefighter\npc.cpp(210): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-  Player.cpp
-d:\simon\documents\github\typefighter\typefighter\animationhandler.h(56): warning C4240: nonstandard extension used: access to 'AnimationHandler::frameIndex' now defined to be 'public', previously it was defined to be 'private'
-  d:\simon\documents\github\typefighter\typefighter\animationhandler.h(29): note: see declaration of 'AnimationHandler::frameIndex'
-d:\simon\documents\github\typefighter\typefighter\drawtext.h(33): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-d:\simon\documents\github\typefighter\typefighter\drawtext.h(34): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-d:\simon\documents\github\typefighter\typefighter\player.cpp(47): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
-          with
-          [
-              T=float
-          ]
-  Compiling...
-  RayCastCallback.cpp
-  SFMLDebugDraw.cpp
-d:\simon\documents\github\typefighter\typefighter\sfmldebugdraw.cpp(94): warning C4305: 'initializing': truncation from 'double' to 'float'
-  SplitAnimationManager.cpp
-d:\simon\documents\github\typefighter\typefighter\animationhandler.h(56): warning C4240: nonstandard extension used: access to 'AnimationHandler::frameIndex' now defined to be 'public', previously it was defined to be 'private'
-  d:\simon\documents\github\typefighter\typefighter\animationhandler.h(29): note: see declaration of 'AnimationHandler::frameIndex'
-d:\simon\documents\github\typefighter\typefighter\splitanimationmanager.cpp(7): warning C4018: '<': signed/unsigned mismatch
-d:\simon\documents\github\typefighter\typefighter\splitanimationmanager.cpp(20): warning C4018: '<': signed/unsigned mismatch
-  TypingControls.cpp
-d:\simon\documents\github\typefighter\typefighter\drawtext.h(33): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-d:\simon\documents\github\typefighter\typefighter\drawtext.h(34): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-d:\simon\documents\github\typefighter\typefighter\typingcontrols.cpp(22): warning C4018: '<': signed/unsigned mismatch
-d:\simon\documents\github\typefighter\typefighter\typingcontrols.cpp(31): warning C4018: '<': signed/unsigned mismatch
-d:\simon\documents\github\typefighter\typefighter\typingcontrols.cpp(45): warning C4018: '<': signed/unsigned mismatch
-d:\simon\documents\github\typefighter\typefighter\typingcontrols.cpp(55): warning C4018: '>': signed/unsigned mismatch
-d:\simon\documents\github\typefighter\typefighter\typingcontrols.cpp(73): warning C4018: '<': signed/unsigned mismatch
-d:\simon\documents\github\typefighter\typefighter\typingcontrols.cpp(84): warning C4018: '>': signed/unsigned mismatch
-d:\simon\documents\github\typefighter\typefighter\typingcontrols.cpp(95): warning C4018: '<': signed/unsigned mismatch
-d:\simon\documents\github\typefighter\typefighter\typingcontrols.cpp(93): warning C4101: '_newIndex': unreferenced local variable
-d:\simon\documents\github\typefighter\typefighter\typingcontrols.cpp(116): warning C4018: '<': signed/unsigned mismatch
-d:\simon\documents\github\typefighter\typefighter\typingcontrols.cpp(118): warning C4244: 'initializing': conversion from 'unsigned int' to 'float', possible loss of data
-d:\simon\documents\github\typefighter\typefighter\typingcontrols.cpp(132): warning C4018: '<': signed/unsigned mismatch
-d:\simon\documents\github\typefighter\typefighter\typingcontrols.cpp(239): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-d:\simon\documents\github\typefighter\typefighter\typingcontrols.cpp(243): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-d:\simon\documents\github\typefighter\typefighter\typingcontrols.cpp(246): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-d:\simon\documents\github\typefighter\typefighter\typingcontrols.cpp(253): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
-          with
-          [
-              T=float
-          ]
-d:\simon\documents\github\typefighter\typefighter\typingcontrols.cpp(256): warning C4018: '<': signed/unsigned mismatch
-d:\simon\documents\github\typefighter\typefighter\typingcontrols.cpp(363): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-d:\simon\documents\github\typefighter\typefighter\typingcontrols.cpp(367): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-d:\simon\documents\github\typefighter\typefighter\typingcontrols.cpp(370): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-d:\simon\documents\github\typefighter\typefighter\typingcontrols.cpp(447): warning C4018: '<': signed/unsigned mismatch
-d:\simon\documents\github\typefighter\typefighter\typingcontrols.cpp(458): warning C4018: '<': signed/unsigned mismatch
-d:\simon\documents\github\typefighter\typefighter\typingcontrols.cpp(464): warning C4018: '<': signed/unsigned mismatch
-d:\simon\documents\github\typefighter\typefighter\typingcontrols.cpp(480): warning C4018: '<': signed/unsigned mismatch
-d:\simon\documents\github\typefighter\typefighter\typingcontrols.cpp(508): warning C4018: '>': signed/unsigned mismatch
-d:\simon\documents\github\typefighter\typefighter\typingcontrols.cpp(526): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
-          with
-          [
-              T=unsigned int
-          ]
-d:\simon\documents\github\typefighter\typefighter\typingcontrols.cpp(566): warning C4018: '>': signed/unsigned mismatch
-d:\simon\documents\github\typefighter\typefighter\typingcontrols.cpp(589): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
-          with
-          [
-              T=unsigned int
-          ]
-d:\simon\documents\github\typefighter\typefighter\typingcontrols.cpp(629): warning C4018: '>': signed/unsigned mismatch
-  WorldGenerator.cpp
-d:\simon\documents\github\typefighter\typefighter\animationhandler.h(56): warning C4240: nonstandard extension used: access to 'AnimationHandler::frameIndex' now defined to be 'public', previously it was defined to be 'private'
-  d:\simon\documents\github\typefighter\typefighter\animationhandler.h(29): note: see declaration of 'AnimationHandler::frameIndex'
-d:\simon\documents\github\typefighter\typefighter\worldgenerator.h(108): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
-d:\simon\documents\github\typefighter\typefighter\worldgenerator.cpp(20): warning C4018: '<': signed/unsigned mismatch
-d:\simon\documents\github\typefighter\typefighter\worldgenerator.cpp(24): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-d:\simon\documents\github\typefighter\typefighter\worldgenerator.cpp(100): warning C4018: '<': signed/unsigned mismatch
-d:\simon\documents\github\typefighter\typefighter\worldgenerator.cpp(271): warning C4018: '<': signed/unsigned mismatch
-d:\simon\documents\github\typefighter\typefighter\worldgenerator.cpp(279): warning C4018: '<': signed/unsigned mismatch
-d:\simon\documents\github\typefighter\typefighter\worldgenerator.cpp(291): warning C4018: '<': signed/unsigned mismatch
-d:\simon\documents\github\typefighter\typefighter\worldgenerator.cpp(306): warning C4018: '<': signed/unsigned mismatch
-d:\simon\documents\github\typefighter\typefighter\worldgenerator.cpp(310): warning C4018: '<': signed/unsigned mismatch
-d:\simon\documents\github\typefighter\typefighter\worldgenerator.cpp(319): warning C4018: '<': signed/unsigned mismatch
-d:\simon\documents\github\typefighter\typefighter\worldgenerator.cpp(330): warning C4018: '<': signed/unsigned mismatch
-d:\simon\documents\github\typefighter\typefighter\worldgenerator.cpp(341): warning C4018: '<': signed/unsigned mismatch
-d:\simon\documents\github\typefighter\typefighter\worldgenerator.cpp(343): warning C4018: '<': signed/unsigned mismatch
-  DrawText.cpp
-d:\simon\documents\github\typefighter\typefighter\drawtext.h(33): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-d:\simon\documents\github\typefighter\typefighter\drawtext.h(34): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-d:\simon\documents\github\typefighter\typefighter\drawtext.cpp(139): warning C4018: '<': signed/unsigned mismatch
-d:\simon\documents\github\typefighter\typefighter\drawtext.cpp(146): warning C4018: '<': signed/unsigned mismatch
-d:\simon\documents\github\typefighter\typefighter\drawtext.cpp(155): warning C4018: '<': signed/unsigned mismatch
-d:\simon\documents\github\typefighter\typefighter\drawtext.cpp(164): warning C4018: '<': signed/unsigned mismatch
-d:\simon\documents\github\typefighter\typefighter\drawtext.cpp(172): warning C4018: '<': signed/unsigned mismatch
-d:\simon\documents\github\typefighter\typefighter\drawtext.cpp(189): warning C4018: '<': signed/unsigned mismatch
+d:\simon\documents\github\typefighter\typefighter\engine.cpp(330): warning C4018: '<': signed/unsigned mismatch
+d:\simon\documents\github\typefighter\typefighter\engine.cpp(383): warning C4018: '<': signed/unsigned mismatch
+d:\simon\documents\github\typefighter\typefighter\engine.cpp(431): warning C4018: '<': signed/unsigned mismatch
+d:\simon\documents\github\typefighter\typefighter\engine.cpp(433): warning C4018: '<': signed/unsigned mismatch
+d:\simon\documents\github\typefighter\typefighter\engine.cpp(436): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+d:\simon\documents\github\typefighter\typefighter\engine.cpp(439): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
   Generating code
-  1947 of 2157 functions (90.3%) were compiled, the rest were copied from previous compilation.
-    67 functions were new in current compilation
-    27 functions had inline decision re-evaluated but remain unchanged
+  3 of 2187 functions ( 0.1%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    4 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
 Box2D.lib(b2BroadPhase.obj) : warning LNK4099: PDB 'Box2D.pdb' was not found with 'Box2D.lib(b2BroadPhase.obj)' or at 'D:\Simon\Documents\GitHub\TypeFighter\Release\Box2D.pdb'; linking object as if no debug info
 Box2D.lib(b2CollideCircle.obj) : warning LNK4099: PDB 'Box2D.pdb' was not found with 'Box2D.lib(b2CollideCircle.obj)' or at 'D:\Simon\Documents\GitHub\TypeFighter\Release\Box2D.pdb'; linking object as if no debug info

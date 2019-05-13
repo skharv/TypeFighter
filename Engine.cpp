@@ -9,7 +9,7 @@ bool Engine::Init()
 	desktopSize = Vector2f(VideoMode::getDesktopMode().width, VideoMode::getDesktopMode().height);
 	windowSize = Vector2f(WINDOWSIZEX, WINDOWSIZEY);
 
-	window = new RenderWindow(VideoMode(desktopSize.x, desktopSize.y), "Keyboard Warrior"/*, Style::Fullscreen*/);
+	window = new RenderWindow(VideoMode(desktopSize.x, desktopSize.y), "Keyboard Warrior", Style::Fullscreen);
 	window->setVerticalSyncEnabled(true);
 	window->setKeyRepeatEnabled(false);
 	window->setMouseCursorVisible(false);
@@ -44,6 +44,11 @@ bool Engine::Init()
 	world->SetContactListener(collisionHandler);
 
 	distanceTravelled = new DrawText("Images/TestText.png", 8);
+	credit = new DrawText("Images/TestText.png", 8);
+	credit->SetSprites(new string("BY SIMON HARVEY"));
+	credit->SetOrigin(Vector2f(credit->GetLength().x / 2, credit->GetLength().y / 2));
+	credit->SetPosition(Vector2f(camera->GetPosition().x + (camera->GetSize().x / 2) - (camera->GetSize().x / 20) - (credit->GetLength().x / 2), camera->GetPosition().y + (camera->GetSize().y / 2) - (camera->GetSize().y / 20)));
+
 
 	menuShade = new RectangleShape(camera->GetCamera().getSize());
 	menuShade->setFillColor(Color(0, 0, 0, 128));
@@ -328,6 +333,8 @@ void Engine::Update()
 		}
 	}
 
+	credit->SetPosition(Vector2f(camera->GetPosition().x + (camera->GetSize().x / 2) - (camera->GetSize().x / 20) - (credit->GetLength().x / 2), camera->GetPosition().y + (camera->GetSize().y / 2) - (camera->GetSize().y / 20)));
+
 	SteamLeaderboards->Update();
 
 	if (player->GetQuit())
@@ -348,6 +355,7 @@ void Engine::RenderFrame()
 	{
 		SteamLeaderboards->Draw(*window);
 		logo->Draw(*window);
+		credit->Draw(*window);
 	}
 	player->Draw(*window);
 	window->draw(*gameShade);
